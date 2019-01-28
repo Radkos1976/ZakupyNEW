@@ -1,0 +1,11 @@
+﻿1>------ Kompilacja rozpoczęta: Projekt: ZakupyNEW, Konfiguracja: Debug Any CPU ------
+1>  ZakupyNEW -> d:\moje dokumenty\visual studio 2017\Projects\ZakupyNEW\ZakupyNEW\bin\Debug\ZakupyNEW.exe
+Kompilowanie elementu ZakupyNEW...
+2>------ Publikacja rozpoczęta: ProjektZakupyNEW, Konfiguracja: Debug Any CPU ------
+Łączenie do "d:\moje dokumenty\visual studio 2017\Projects\ZakupyNEW\ZakupyNEW\publish\"...
+Publikowanie plików...
+Publikowanie zakończyło się powodzeniem.
+Ostrzeżenie: Nie można wyświetlić opublikowanej aplikacji w http://10.0.1.29:3000/InstallNEW/.
+http://10.0.1.29:3000/InstallNEW/
+========== Kompilacja: 1 zakończono powodzeniem, 0 zakończono niepowodzeniem, 0 zaktualizowano, 0 pominięto ==========
+========== Publikowanie: 1 zakończono powodzeniem, 0 zakończono niepowodzeniem, 0 pominięto ==========
