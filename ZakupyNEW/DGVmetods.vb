@@ -157,7 +157,7 @@ Class Inform
     Public i_typ As String
     Public status As String
     Public Sub New(i_crtlnam As Object, i_rwind As Long)
-        If i_crtlnam.FindForm.Name = "Form2" Then
+        If i_crtlnam.FindForm.Name = "Signals" Then
             i_partno = i_crtlnam.Rows(i_rwind).Cells("Indeks").Value.ToString
             i_datadost = i_crtlnam.Rows(i_rwind).Cells("data_dost").Value
             i_typ = i_crtlnam.Rows(i_rwind).Cells("typ_zdarzenia").Value
@@ -168,30 +168,30 @@ Class Inform
             i_typ = "none"
             status = ""
         End If
-        Dialog1.partno = i_partno
-        Dialog1.datdost = i_datadost
-        Dialog1.GroupBox1.Text = "Indeks : " & i_partno
-        Dialog1.Width = 288
-        Dialog1.Height = 380
-        Dialog1.Label1.Text = i_crtlnam.Rows(i_rwind).Cells("opis").Value.ToString
-        Dialog1.Label2.Text = "Data dostawy : " & i_datadost.ToString
-        Dialog1.Label5.Text = i_typ
+        signalinformation.partno = i_partno
+        signalinformation.datdost = i_datadost
+        signalinformation.GroupBox1.Text = "Indeks : " & i_partno
+        signalinformation.Width = 288
+        signalinformation.Height = 380
+        signalinformation.Label1.Text = i_crtlnam.Rows(i_rwind).Cells("opis").Value.ToString
+        signalinformation.Label2.Text = "Data dostawy : " & i_datadost.ToString
+        signalinformation.Label5.Text = i_typ
         If i_typ = "Dostawa na dzisiejsze ilości" Then
-            Dialog1.Label3.Text = "Możliwe działania :" & Chr(10) & "- Sygnał informacyjny" & Chr(10) & "- Realne przyśpieszenie dostawy" & Chr(10) & "- Modyfikacja daty dostawy w IFS"
+            signalinformation.Label3.Text = "Możliwe działania :" & Chr(10) & "- Sygnał informacyjny" & Chr(10) & "- Realne przyśpieszenie dostawy" & Chr(10) & "- Modyfikacja daty dostawy w IFS"
         ElseIf i_typ = "Brak zamówień zakupu" Then
-            Dialog1.Label3.Text = "Możliwe działania :" & Chr(10) & "- Utworzenie zamówienia w IFS" & Chr(10) & "- Określenie komponentu jako wycofany i " & Chr(10) & " zmiana leadtime'u na komponencie"
+            signalinformation.Label3.Text = "Możliwe działania :" & Chr(10) & "- Utworzenie zamówienia w IFS" & Chr(10) & "- Określenie komponentu jako wycofany i " & Chr(10) & " zmiana leadtime'u na komponencie"
         ElseIf i_typ = "Braki w gwarantowanej dacie" Then
-            Dialog1.Label3.Text = "Możliwe działania :" & Chr(10) & "- Utworzenie zamówienia w IFS" & Chr(10) & "- Określenie komponentu jako wycofany"
+            signalinformation.Label3.Text = "Możliwe działania :" & Chr(10) & "- Utworzenie zamówienia w IFS" & Chr(10) & "- Określenie komponentu jako wycofany"
         ElseIf i_typ = "Dzisiejsza dostawa" Then
-            Dialog1.Label3.Text = "Możliwe działania :" & Chr(10) & "- Sygnał informacyjny" & Chr(10) & "- Modyfikacja dostawy w IFS"
+            signalinformation.Label3.Text = "Możliwe działania :" & Chr(10) & "- Sygnał informacyjny" & Chr(10) & "- Modyfikacja dostawy w IFS"
         ElseIf i_typ = "Opóźniona dostawa" Then
-            Dialog1.Label3.Text = "Możliwe działania :" & Chr(10) & "- Sygnał informacyjny" & Chr(10) & "- Urealnienie daty dostawy w IFS"
+            signalinformation.Label3.Text = "Możliwe działania :" & Chr(10) & "- Sygnał informacyjny" & Chr(10) & "- Urealnienie daty dostawy w IFS"
         ElseIf i_typ = "Brakujące ilości" Then
-            Dialog1.Label3.Text = "Możliwe działania :" & Chr(10) & "- Uruchomienie komunikatu" & Chr(10) & "- Modyfikacja dostawy w IFS"
+            signalinformation.Label3.Text = "Możliwe działania :" & Chr(10) & "- Uruchomienie komunikatu" & Chr(10) & "- Modyfikacja dostawy w IFS"
         Else
-            Dialog1.Label3.Text = ""
+            signalinformation.Label3.Text = ""
         End If
-        Dialog1.Label4.Text = "Status:" & status
+        signalinformation.Label4.Text = "Status:" & status
         Using kors As New DataTable()
             Using zamK As New DataTable()
                 Using confK As New DataTable()
@@ -222,14 +222,14 @@ Class Inform
                                 confK.Load(rs)
                             End Using
                         End Using
-                        Dialog1.ListView1.Items(0).Text = "Lista zamówień/zleceń dotyczących sygnału (" & zamK.Rows.Count() & ")"
-                        Dialog1.ListView1.Items(1).Text = "Sygnały w konflikcie (" & kors.Rows.Count() & ")"
-                        Dialog1.ListView1.Items(2).Text = "Zamówienia nie potwierdzone związane z sygnałem (" & confK.Rows.Count() & ")"
+                        signalinformation.ListView1.Items(0).Text = "Lista zamówień/zleceń dotyczących sygnału (" & zamK.Rows.Count() & ")"
+                        signalinformation.ListView1.Items(1).Text = "Sygnały w konflikcie (" & kors.Rows.Count() & ")"
+                        signalinformation.ListView1.Items(2).Text = "Zamówienia nie potwierdzone związane z sygnałem (" & confK.Rows.Count() & ")"
                     End Using
                 End Using
             End Using
         End Using
-        Dialog1.ShowDialog()
+        signalinformation.ShowDialog()
     End Sub
 End Class
 

@@ -27,7 +27,7 @@ Public Class LoginForm1
             allowed = False
         End Try
         If allowed Then
-            Form2.Show()
+            signals.Show()
             ' Me.Hide()
         End If
     End Sub
@@ -46,7 +46,7 @@ Public Class LoginForm1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         SaveSetting("ZakupyNEW", "Main", "UID", "NoPostgresql")
         SaveSetting("ZakupyNEW", "Main", "PSW", "none")
-        Form2.Show()
+        signals.Show()
         'Me.Hide()
     End Sub
 End Class

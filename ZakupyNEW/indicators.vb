@@ -1,7 +1,7 @@
 ﻿Imports Npgsql
 Imports System.Windows.Forms.DataVisualization.Charting
 Imports DgvFilterPopup
-Public Class Form1
+Public Class Indicators
     Dim V As DgvFilterManager
     Dim m As DGVColumnSelector.DataGridViewColumnSelector
     Dim g_focus As String
@@ -494,7 +494,7 @@ Public Class Form1
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1)='5' group by wrkc", conB)
+                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1)='5' group by wrkc having sum(qty_all)>0", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker3.Value
                         con.Prepare()
                         Using rs As NpgsqlDataReader = con.ExecuteReader
@@ -550,7 +550,7 @@ Public Class Form1
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) in ('4','1','2') group by wrkc", conB)
+                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) in ('4','1','2') group by wrkc having sum(qty_all)>0", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker5.Value
                         con.Prepare()
                         Using rs As NpgsqlDataReader = con.ExecuteReader
@@ -607,7 +607,7 @@ Public Class Form1
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) not in ('5','4','1','2') group by wrkc", conB)
+                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) not in ('5','4','1','2') group by wrkc having sum(qty_all)>0", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker7.Value
                         con.Prepare()
                         Using rs As NpgsqlDataReader = con.ExecuteReader
@@ -875,7 +875,7 @@ Public Class Form1
         Reorg()
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
-        Process.Start("http://ifsvapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Part_no").Value.ToString & "%255E*%26COMPANY%3DSITS")
+        Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " & "http://ifsvapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Part_no").Value.ToString & "%255E*%26COMPANY%3DSITS")
     End Sub
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         If ToolStripButton1.Checked = True Then
@@ -898,7 +898,7 @@ Public Class Form1
             FlowLayoutPanel1.Controls.Remove(Panel3)
             If Not SplitContainer1.Panel2Collapsed Then SplitContainer1.Panel2Collapsed = True
         End If
-        reorg()
+        Reorg()
     End Sub
 
     Private Sub ToolStripButton3_Click(sender As Object, e As EventArgs) Handles ToolStripButton3.Click
@@ -1013,7 +1013,7 @@ Public Class Form1
         If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
             SelectDataPoint = Chart8.Series(0).Points(HTR.PointIndex)
             'MsgBox(SelectDataPoint.ToString)
-            FILL_TBL("AKT_d", DateTimePicker6.Value, SelectDataPoint.AxisLabel.Substring(0, 7).Trim())
+            FILL_TBL("AKT_d", DateTimePicker6.Value, SelectDataPoint.AxisLabel.Substring(0, SelectDataPoint.AxisLabel.IndexOf(" ")).Trim())
             Me.SplitContainer1.Panel2Collapsed = False
             Me.SplitContainer1.SplitterDistance = CInt(Me.SplitContainer1.Size.Height * 0.5)
         End If
@@ -1027,7 +1027,7 @@ Public Class Form1
         If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
             SelectDataPoint = Chart7.Series(0).Points(HTR.PointIndex)
             'MsgBox(SelectDataPoint.ToString)
-            FILL_TBL("AKT_m", DateTimePicker4.Value, SelectDataPoint.AxisLabel.Substring(0, 7).Trim())
+            FILL_TBL("AKT_m", DateTimePicker4.Value, SelectDataPoint.AxisLabel.Substring(0, SelectDataPoint.AxisLabel.IndexOf(" ")).Trim())
             Me.SplitContainer1.Panel2Collapsed = False
             Me.SplitContainer1.SplitterDistance = CInt(Me.SplitContainer1.Size.Height * 0.5)
         End If
@@ -1041,7 +1041,7 @@ Public Class Form1
         If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
             SelectDataPoint = Chart1.Series(0).Points(HTR.PointIndex)
             'MsgBox(SelectDataPoint.ToString)
-            FILL_TBL("AKT_a", Now.Date, SelectDataPoint.AxisLabel.Substring(0, 7).Trim())
+            FILL_TBL("AKT_a", Now.Date, SelectDataPoint.AxisLabel.Substring(0, SelectDataPoint.AxisLabel.IndexOf(" ")).Trim())
             Me.SplitContainer1.Panel2Collapsed = False
             Me.SplitContainer1.SplitterDistance = CInt(Me.SplitContainer1.Size.Height * 0.5)
         End If
@@ -1103,4 +1103,18 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub DataGridView1_DragEnter(sender As Object, e As DragEventArgs) Handles DataGridView1.DragEnter
+        If e.Data.GetDataPresent(DataFormats.FileDrop) Then
+            e.Effect = DragDropEffects.Link
+        Else
+            e.Effect = DragDropEffects.None
+        End If
+    End Sub
+
+    Private Sub DataGridView1_DragDrop(sender As Object, e As DragEventArgs) Handles DataGridView1.DragDrop
+        Dim files() As String = e.Data.GetData(DataFormats.FileDrop)
+        For Each path In files
+            MsgBox(path)
+        Next
+    End Sub
 End Class

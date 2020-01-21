@@ -28,7 +28,7 @@
     <InstallUrl>http://10.0.1.29:3000/InstallNEW/</InstallUrl>
     <ProductName>ZakupyNEW</ProductName>
     <PublisherName>Radomir Kosobucki</PublisherName>
-    <ApplicationRevision>106</ApplicationRevision>
+    <ApplicationRevision>110</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -86,10 +86,11 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>F10788C49D1D44C833EBE9E8F9320CD963203C86</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>57B6EC6601C499A24A8B1197924CC76083157A6D</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>ZakupyNEW_1_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -148,24 +149,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Class1.vb" />
-    <Compile Include="Class2.vb" />
-    <Compile Include="Dialog1.Designer.vb">
-      <DependentUpon>Dialog1.vb</DependentUpon>
+    <Compile Include="DGVmetods.vb" />
+    <Compile Include="Progress.vb" />
+    <Compile Include="Signalinformation.Designer.vb">
+      <DependentUpon>Signalinformation.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialog1.vb">
+    <Compile Include="Signalinformation.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Indicators.Designer.vb">
+      <DependentUpon>Indicators.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="Indicators.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="Signals.designer.vb">
+      <DependentUpon>Signals.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="Signals.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoginForm1.designer.vb">
@@ -174,13 +175,13 @@
     <Compile Include="LoginForm1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginForm2.Designer.vb">
-      <DependentUpon>LoginForm2.vb</DependentUpon>
+    <Compile Include="changepass.Designer.vb">
+      <DependentUpon>changepass.vb</DependentUpon>
     </Compile>
-    <Compile Include="LoginForm2.vb">
+    <Compile Include="changepass.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module1.vb" />
+    <Compile Include="Signal_data.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -204,21 +205,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Dialog1.resx">
-      <DependentUpon>Dialog1.vb</DependentUpon>
+    <EmbeddedResource Include="Signalinformation.resx">
+      <DependentUpon>Signalinformation.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Indicators.resx">
+      <DependentUpon>Indicators.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="Signals.resx">
+      <DependentUpon>Signals.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm1.resx">
       <DependentUpon>LoginForm1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginForm2.resx">
-      <DependentUpon>LoginForm2.vb</DependentUpon>
+    <EmbeddedResource Include="changepass.resx">
+      <DependentUpon>changepass.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -244,6 +245,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="ZakupyNEW_1_TemporaryKey.pfx" />
+    <None Include="ZakupyNEW_2_TemporaryKey.pfx" />
     <None Include="ZakupyNEW_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 ﻿Imports System.IO
 Imports Npgsql
-Module Module1
+Module Signal_data
     Public PROC As String
     Public logon_complete = False
     Public start_cal As Date = Now

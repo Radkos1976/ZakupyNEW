@@ -1,5 +1,5 @@
 Imports Npgsql
-Public Class LoginForm2
+Public Class changepass
 
     ' TODO: Wstaw kod, aby wykonaæ niestandardowe uwierzytelnianie przy u¿yciu podanej nazwy u¿ytkownika i has³a 
     ' (Zobacz https://go.microsoft.com/fwlink/?LinkId=35339).  

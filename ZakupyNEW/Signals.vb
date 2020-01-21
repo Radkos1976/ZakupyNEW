@@ -3,8 +3,9 @@ Imports System.Threading
 Imports Npgsql
 Imports DgvFilterPopup
 Imports System.Windows.Forms.DataVisualization.Charting
+Imports System.Net.WebClient
 
-Public Class Form2
+Public Class Signals
     Private Const WM_SETREDRAW As Integer = 11
     Dim upd_now As Boolean = False
     Public src As New DataTable
@@ -17,12 +18,13 @@ Public Class Form2
     Dim txtdat(5, 1) As String
     Dim EVNTdat(5) As String
     Public col_war As Boolean = True
-    Private Declare Function SendMessage Lib "user32" _
-  Alias "SendMessageA" _
-  (ByVal hWnd As Integer, ByVal wMsg As Integer,
-  ByVal wParam As Integer, ByRef lParam As Object) _
-  As Integer
-
+    Friend NotInheritable Class NativeMethods
+        Public Declare Function SendMessage Lib "user32" _
+            Alias "SendMessageA" _
+            (ByVal hWnd As Integer, ByVal wMsg As Integer,
+            ByVal wParam As Integer, ByRef lParam As Object) _
+            As Integer
+    End Class
     Public Sub New()
         ' This call is required by the designer.
         'Application.Run(LoginForm1)
@@ -159,7 +161,7 @@ Public Class Form2
                                     End Using
                                 End Using
                             End Using
-                            conB.Close()
+
                         Catch ex As Exception
                             If SHOW_err Then MsgBox(ex.Message & " get_changes ex")
                         End Try
@@ -317,7 +319,6 @@ Public Class Form2
                                 TreeView1.Nodes(0).EnsureVisible()
                             End Using
                         End Using
-                        conB.Close()
                     End Using
                 End Using
             Catch ex1 As Exception
@@ -345,9 +346,9 @@ Public Class Form2
         End Select
     End Function
     Private Sub ToolStripStatusLabel1_Click(sender As System.Object, e As System.EventArgs) Handles ToolStripStatusLabel1.Click
-        LoginForm2.ShowDialog()
+        changepass.ShowDialog()
         If GetSetting("Zakupy", "Main", "online", "0") = 1 Then ToolStripStatusLabel1.Text = "ONLINE" Else ToolStripStatusLabel1.Text = "OFFLINE"
-        LoginForm2.Dispose()
+        changepass.Dispose()
     End Sub
     Private Sub Form2_FormClosing(sender As Object, e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
         Me.Panel1.TopLevelControl.BringToFront()
@@ -417,7 +418,6 @@ Public Class Form2
                             'Chart1.Series(Series1.Name).LabelFormat = "0%"
                         End Using
                     End Using
-                    conB.Close()
                 End Using
             End Using
 
@@ -473,7 +473,6 @@ Public Class Form2
                             Chart3.Series(Series1.Name).LabelFormat = "0.00%"
                         End Using
                     End Using
-                    conB.Close()
                 End Using
             End Using
 
@@ -532,7 +531,6 @@ Public Class Form2
                                 Chart2.Series(Series1.Name).LabelFormat = "0.00"
                             End Using
                         End Using
-                        conB.Close()
                     End Using
                 End Using
             Else
@@ -542,7 +540,7 @@ Public Class Form2
         End Try
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
-        Process.Start("http://ifsvapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Indeks").Value.ToString & "%255E*%26COMPANY%3DSITS")
+        Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " & "http://ifsvapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Indeks").Value.ToString & "%255E*%26COMPANY%3DSITS")
     End Sub
     Private Sub DataGridView1_CellPainting(ByVal sender As Object, ByVal e As DataGridViewCellPaintingEventArgs) Handles DataGridView1.CellPainting
         If e.ColumnIndex = -1 AndAlso e.RowIndex >= 0 Then
@@ -718,7 +716,7 @@ Public Class Form2
     Private Sub Get_datset(Optional runnow As Boolean = False)
         rase_evn = True
         Dim wyn As String
-        wyn = Module1.CRE_Soures(runnow)
+        wyn = Signal_data.CRE_Soures(runnow)
         If wyn = "SQLREAD" Then
             src = Save_ADO(runnow)
             QWERTY()
@@ -1049,7 +1047,6 @@ Public Class Form2
                                     End If
                                 Next i
                             End Using
-                            conB.Close()
                         End Using
                     End Using
                 Catch ex1 As Exception
@@ -1060,7 +1057,6 @@ Public Class Form2
                     Using con As New NpgsqlCommand("select updt_dta_potw()", conB)
                         Dim wys = con.ExecuteScalar()
                     End Using
-                    conB.Close()
                 End Using
                 If Not rase_evn Then src = Save_ADO(runnow)
                 'If Not rase_evn Then src = GETDATA(True)
@@ -1118,7 +1114,6 @@ Public Class Form2
                                     End If
                                 Next i
                             End Using
-                            conB.Close()
                         End Using
                     End Using
                 Catch ex1 As Exception
@@ -1129,7 +1124,6 @@ Public Class Form2
                     Using con As New NpgsqlCommand("select updt_dta_potw()", conB)
                         Dim wys = con.ExecuteScalar()
                     End Using
-                    conB.Close()
                 End Using
                 If Not rase_evn Then src = Save_ADO(runnow)
                 'If Not rase_evn Then src = GETDATA(True)
@@ -1173,7 +1167,6 @@ Public Class Form2
                                     End If
                                 Next i
                             End Using
-                            conB.Close()
                         End Using
                     End Using
                 Catch ex1 As Exception
@@ -1184,7 +1177,6 @@ Public Class Form2
                     Using con As New NpgsqlCommand("select updt_dta_potw()", conB)
                         Dim wys = con.ExecuteScalar()
                     End Using
-                    conB.Close()
                 End Using
                 If Not rase_evn Then src = Save_ADO(runnow)
                 'If Not rase_evn Then src = GETDATA(True)
@@ -1227,7 +1219,6 @@ Public Class Form2
                                     End If
                                 Next i
                             End Using
-                            conB.Close()
                         End Using
                     End Using
                 Catch ex1 As Exception
@@ -1238,7 +1229,6 @@ Public Class Form2
                     Using con As New NpgsqlCommand("select updt_dta_potw()", conB)
                         Dim wys = con.ExecuteScalar()
                     End Using
-                    conB.Close()
                 End Using
                 If Not rase_evn Then src = Save_ADO(runnow)
                 'If Not rase_evn Then src = GETDATA(True)
@@ -1282,7 +1272,6 @@ Public Class Form2
                                     End If
                                 Next i
                             End Using
-                            conB.Close()
                         End Using
                     End Using
                 Catch ex As Exception
@@ -1294,7 +1283,6 @@ Public Class Form2
                     Using con As New NpgsqlCommand("select updt_dta_potw()", conB)
                         Dim wys = con.ExecuteScalar()
                     End Using
-                    conB.Close()
                 End Using
                 If Not rase_evn Then src = Save_ADO(runnow)
                 'If Not rase_evn Then src = GETDATA(True)
@@ -1388,7 +1376,7 @@ Public Class Form2
     End Sub
 
     Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
-        Form1.Show()
+        Indicators.Show()
     End Sub
 
     Private Sub ToolStripButton8_Click(sender As Object, e As EventArgs) Handles ToolStripButton8.Click
@@ -1423,7 +1411,6 @@ Public Class Form2
                                         con.Parameters(3).Value = Convert.ToDouble(DataGridView1.SelectedRows(i).Cells("wlk_dost").Value)
                                         Dim wys = con.ExecuteScalar()
                                     End Using
-                                    conB.Close()
                                 End Using
                             End Using
                         Catch ex As Exception
@@ -1438,7 +1425,6 @@ Public Class Form2
                         Using con As New NpgsqlCommand("select updt_dta_potw()", conB)
                             Dim wys = con.ExecuteScalar()
                         End Using
-                        conB.Close()
                     End Using
                     If Not rase_evn Then src = Save_ADO(runnow)
                     'If Not rase_evn Then src = GETDATA(True)
@@ -1470,7 +1456,6 @@ Public Class Form2
                                     con.Parameters(2).Value = Convert.ToDouble(DataGridView1.SelectedRows(i).Cells("wlk_dost").Value)
                                     Dim wys = con.ExecuteScalar()
                                 End Using
-                                conB.Close()
                             End Using
                         End Using
                     Catch ex As Exception
@@ -1484,7 +1469,6 @@ Public Class Form2
                     Using con As New NpgsqlCommand("select updt_dta_potw()", conB)
                         Dim wys = con.ExecuteScalar()
                     End Using
-                    conB.Close()
                 End Using
                 If Not rase_evn Then src = Save_ADO(runnow)
                 'If Not rase_evn Then src = GETDATA(True)
@@ -1556,9 +1540,9 @@ Public Class Form2
         tree_busy = False
     End Sub
     Private Sub SuspendDrawing(Control As Control)
-        SendMessage(Control.Handle, WM_SETREDRAW, False, 0)
+        NativeMethods.SendMessage(Control.Handle, WM_SETREDRAW, False, 0)
     End Sub
     Private Sub ResumeDrawing(Control As Control)
-        SendMessage(Control.Handle, WM_SETREDRAW, True, 0)
+        NativeMethods.SendMessage(Control.Handle, WM_SETREDRAW, True, 0)
     End Sub
 End Class

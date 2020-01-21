@@ -1,5 +1,5 @@
 ﻿Imports Npgsql
-Public Class Dialog1
+Public Class Signalinformation
     Public partno As String
     Public datdost As Date
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
