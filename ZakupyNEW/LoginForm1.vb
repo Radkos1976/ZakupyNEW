@@ -14,7 +14,7 @@ Public Class LoginForm1
         Try
             SaveSetting("ZakupyNEW", "Main", "UID", UsernameTextBox.Text)
             SaveSetting("ZakupyNEW", "Main", "PSW", PasswordTextBox.Text)
-            Dim qw As New NpgsqlConnectionStringBuilder("Host = 10.0.1.29; Port = 5432; ApplicationName = CLIENT; Username = " & GetSetting("ZakupyNEW", "Main", "UID", "NoPostgresql") & "; Password = " & GetSetting("ZakupyNEW", "Main", "PSW") & "; Database = zakupy")
+            Dim qw As New NpgsqlConnectionStringBuilder("Host = 10.1.1.29; Port = 5432; ApplicationName = CLIENT; Username = " & GetSetting("ZakupyNEW", "Main", "UID", "NoPostgresql") & "; Password = " & GetSetting("ZakupyNEW", "Main", "PSW") & "; Database = zakupy")
             Dim NpA As String = qw.ToString
             Using conB As New NpgsqlConnection(NpA)
                 conB.Open()

@@ -23,30 +23,30 @@ Partial Class Indicators
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim ChartArea13 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series13 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea14 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series14 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea15 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series15 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea16 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series16 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea17 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series17 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea18 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series18 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea19 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series19 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea20 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series20 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea21 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series21 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea22 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series22 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea23 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series23 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
-        Dim ChartArea24 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
-        Dim Series24 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea3 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea4 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series4 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea5 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series5 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea6 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series6 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea7 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series7 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea8 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series8 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea9 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series9 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea10 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series10 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea11 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series11 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim ChartArea12 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series12 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Indicators))
         Me.BottomToolStripPanel = New System.Windows.Forms.ToolStripPanel()
         Me.TopToolStripPanel = New System.Windows.Forms.ToolStripPanel()
@@ -284,24 +284,24 @@ Partial Class Indicators
         Me.Chart1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center
         Me.Chart1.BorderSkin.BackImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Chart1.BorderSkin.BackSecondaryColor = System.Drawing.Color.Red
-        ChartArea13.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
-        ChartArea13.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea13)
+        ChartArea1.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
         Me.Chart1.Location = New System.Drawing.Point(0, 32)
         Me.Chart1.Margin = New System.Windows.Forms.Padding(0)
         Me.Chart1.Name = "Chart1"
-        Series13.ChartArea = "ChartArea1"
-        Series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
-        Series13.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Series13.IsVisibleInLegend = False
-        Series13.LabelAngle = 20
-        Series13.Name = "Series1"
-        Series13.ShadowOffset = 10
-        Series13.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes
-        Series13.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.Box
-        Series13.SmartLabelStyle.IsMarkerOverlappingAllowed = True
-        Series13.SmartLabelStyle.MaxMovingDistance = 500.0R
-        Series13.SmartLabelStyle.MovingDirection = CType(((((((((System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Top Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Bottom) _
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+        Series1.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Series1.IsVisibleInLegend = False
+        Series1.LabelAngle = 20
+        Series1.Name = "Series1"
+        Series1.ShadowOffset = 10
+        Series1.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes
+        Series1.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.Box
+        Series1.SmartLabelStyle.IsMarkerOverlappingAllowed = True
+        Series1.SmartLabelStyle.MaxMovingDistance = 500.0R
+        Series1.SmartLabelStyle.MovingDirection = CType(((((((((System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Top Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Bottom) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Right) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Left) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.TopLeft) _
@@ -309,7 +309,7 @@ Partial Class Indicators
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.BottomLeft) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.BottomRight) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Center), System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles)
-        Me.Chart1.Series.Add(Series13)
+        Me.Chart1.Series.Add(Series1)
         Me.Chart1.Size = New System.Drawing.Size(278, 262)
         Me.Chart1.TabIndex = 1
         Me.Chart1.Text = "Chart1"
@@ -339,18 +339,18 @@ Partial Class Indicators
         '
         Me.Chart3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Chart3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        ChartArea14.BorderColor = System.Drawing.Color.Transparent
-        ChartArea14.Name = "ChartArea1"
-        Me.Chart3.ChartAreas.Add(ChartArea14)
+        ChartArea2.BorderColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart3.ChartAreas.Add(ChartArea2)
         Me.Chart3.Cursor = System.Windows.Forms.Cursors.Default
         Me.Chart3.Location = New System.Drawing.Point(-3, 67)
         Me.Chart3.Name = "Chart3"
-        Series14.ChartArea = "ChartArea1"
-        Series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series14.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Series14.Name = "Series1"
-        Series14.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary
-        Me.Chart3.Series.Add(Series14)
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Series2.Name = "Series1"
+        Series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary
+        Me.Chart3.Series.Add(Series2)
         Me.Chart3.Size = New System.Drawing.Size(201, 227)
         Me.Chart3.TabIndex = 2
         Me.Chart3.Text = "Chart3"
@@ -462,13 +462,13 @@ Partial Class Indicators
         '
         'Chart4
         '
-        ChartArea15.Name = "ChartArea1"
-        Me.Chart4.ChartAreas.Add(ChartArea15)
+        ChartArea3.Name = "ChartArea1"
+        Me.Chart4.ChartAreas.Add(ChartArea3)
         Me.Chart4.Location = New System.Drawing.Point(-14, 62)
         Me.Chart4.Name = "Chart4"
-        Series15.ChartArea = "ChartArea1"
-        Series15.Name = "Series1"
-        Me.Chart4.Series.Add(Series15)
+        Series3.ChartArea = "ChartArea1"
+        Series3.Name = "Series1"
+        Me.Chart4.Series.Add(Series3)
         Me.Chart4.Size = New System.Drawing.Size(567, 243)
         Me.Chart4.TabIndex = 0
         Me.Chart4.Text = "Chart4"
@@ -507,25 +507,25 @@ Partial Class Indicators
         Me.Chart7.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center
         Me.Chart7.BorderSkin.BackImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Chart7.BorderSkin.BackSecondaryColor = System.Drawing.Color.Red
-        ChartArea16.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
-        ChartArea16.Name = "ChartArea1"
-        Me.Chart7.ChartAreas.Add(ChartArea16)
+        ChartArea4.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
+        ChartArea4.Name = "ChartArea1"
+        Me.Chart7.ChartAreas.Add(ChartArea4)
         Me.Chart7.Location = New System.Drawing.Point(0, 50)
         Me.Chart7.Margin = New System.Windows.Forms.Padding(0)
         Me.Chart7.Name = "Chart7"
         Me.Chart7.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen
-        Series16.ChartArea = "ChartArea1"
-        Series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
-        Series16.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Series16.IsVisibleInLegend = False
-        Series16.LabelAngle = 20
-        Series16.Name = "Series1"
-        Series16.ShadowOffset = 10
-        Series16.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes
-        Series16.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.Box
-        Series16.SmartLabelStyle.IsMarkerOverlappingAllowed = True
-        Series16.SmartLabelStyle.MaxMovingDistance = 500.0R
-        Series16.SmartLabelStyle.MovingDirection = CType(((((((((System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Top Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Bottom) _
+        Series4.ChartArea = "ChartArea1"
+        Series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+        Series4.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Series4.IsVisibleInLegend = False
+        Series4.LabelAngle = 20
+        Series4.Name = "Series1"
+        Series4.ShadowOffset = 10
+        Series4.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes
+        Series4.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.Box
+        Series4.SmartLabelStyle.IsMarkerOverlappingAllowed = True
+        Series4.SmartLabelStyle.MaxMovingDistance = 500.0R
+        Series4.SmartLabelStyle.MovingDirection = CType(((((((((System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Top Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Bottom) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Right) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Left) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.TopLeft) _
@@ -533,7 +533,7 @@ Partial Class Indicators
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.BottomLeft) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.BottomRight) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Center), System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles)
-        Me.Chart7.Series.Add(Series16)
+        Me.Chart7.Series.Add(Series4)
         Me.Chart7.Size = New System.Drawing.Size(252, 244)
         Me.Chart7.TabIndex = 1
         Me.Chart7.Text = "Chart7"
@@ -579,15 +579,15 @@ Partial Class Indicators
         '
         'Chart2
         '
-        ChartArea17.Name = "ChartArea1"
-        Me.Chart2.ChartAreas.Add(ChartArea17)
+        ChartArea5.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea5)
         Me.Chart2.Location = New System.Drawing.Point(-27, 70)
         Me.Chart2.Name = "Chart2"
-        Series17.ChartArea = "ChartArea1"
-        Series17.EmptyPointStyle.IsVisibleInLegend = False
-        Series17.LabelAngle = 90
-        Series17.Name = "Series1"
-        Me.Chart2.Series.Add(Series17)
+        Series5.ChartArea = "ChartArea1"
+        Series5.EmptyPointStyle.IsVisibleInLegend = False
+        Series5.LabelAngle = 90
+        Series5.Name = "Series1"
+        Me.Chart2.Series.Add(Series5)
         Me.Chart2.Size = New System.Drawing.Size(690, 234)
         Me.Chart2.TabIndex = 11
         Me.Chart2.Text = "Chart2"
@@ -693,38 +693,38 @@ Partial Class Indicators
         '
         'Chart6
         '
-        ChartArea18.Name = "ChartArea1"
-        Me.Chart6.ChartAreas.Add(ChartArea18)
+        ChartArea6.Name = "ChartArea1"
+        Me.Chart6.ChartAreas.Add(ChartArea6)
         Me.Chart6.Location = New System.Drawing.Point(-27, 162)
         Me.Chart6.Name = "Chart6"
         Me.Chart6.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel
-        Series18.ChartArea = "ChartArea1"
-        Series18.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Series18.IsValueShownAsLabel = True
-        Series18.IsVisibleInLegend = False
-        Series18.Name = "IKEA"
-        Series18.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Date]
-        Series18.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
-        Me.Chart6.Series.Add(Series18)
+        Series6.ChartArea = "ChartArea1"
+        Series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Series6.IsValueShownAsLabel = True
+        Series6.IsVisibleInLegend = False
+        Series6.Name = "IKEA"
+        Series6.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Date]
+        Series6.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
+        Me.Chart6.Series.Add(Series6)
         Me.Chart6.Size = New System.Drawing.Size(396, 142)
         Me.Chart6.TabIndex = 2
         Me.Chart6.Text = "Chart6"
         '
         'Chart5
         '
-        ChartArea19.Name = "ChartArea1"
-        Me.Chart5.ChartAreas.Add(ChartArea19)
+        ChartArea7.Name = "ChartArea1"
+        Me.Chart5.ChartAreas.Add(ChartArea7)
         Me.Chart5.Location = New System.Drawing.Point(-27, 23)
         Me.Chart5.Name = "Chart5"
         Me.Chart5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
-        Series19.ChartArea = "ChartArea1"
-        Series19.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series19.IsValueShownAsLabel = True
-        Series19.Name = "IKEA"
-        Series19.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Date]
-        Series19.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
-        Me.Chart5.Series.Add(Series19)
+        Series7.ChartArea = "ChartArea1"
+        Series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series7.IsValueShownAsLabel = True
+        Series7.Name = "IKEA"
+        Series7.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Date]
+        Series7.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.[Double]
+        Me.Chart5.Series.Add(Series7)
         Me.Chart5.Size = New System.Drawing.Size(396, 142)
         Me.Chart5.TabIndex = 1
         Me.Chart5.Text = "Chart5"
@@ -774,25 +774,25 @@ Partial Class Indicators
         Me.Chart8.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center
         Me.Chart8.BorderSkin.BackImageTransparentColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Chart8.BorderSkin.BackSecondaryColor = System.Drawing.Color.Red
-        ChartArea20.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
-        ChartArea20.Name = "ChartArea1"
-        Me.Chart8.ChartAreas.Add(ChartArea20)
+        ChartArea8.Area3DStyle.LightStyle = System.Windows.Forms.DataVisualization.Charting.LightStyle.Realistic
+        ChartArea8.Name = "ChartArea1"
+        Me.Chart8.ChartAreas.Add(ChartArea8)
         Me.Chart8.Location = New System.Drawing.Point(-1, 59)
         Me.Chart8.Margin = New System.Windows.Forms.Padding(0)
         Me.Chart8.Name = "Chart8"
         Me.Chart8.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate
-        Series20.ChartArea = "ChartArea1"
-        Series20.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
-        Series20.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Series20.IsVisibleInLegend = False
-        Series20.LabelAngle = 20
-        Series20.Name = "Series1"
-        Series20.ShadowOffset = 10
-        Series20.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes
-        Series20.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.Box
-        Series20.SmartLabelStyle.IsMarkerOverlappingAllowed = True
-        Series20.SmartLabelStyle.MaxMovingDistance = 500.0R
-        Series20.SmartLabelStyle.MovingDirection = CType(((((((((System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Top Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Bottom) _
+        Series8.ChartArea = "ChartArea1"
+        Series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut
+        Series8.Font = New System.Drawing.Font("Arial Narrow", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Series8.IsVisibleInLegend = False
+        Series8.LabelAngle = 20
+        Series8.Name = "Series1"
+        Series8.ShadowOffset = 10
+        Series8.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.Yes
+        Series8.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.Box
+        Series8.SmartLabelStyle.IsMarkerOverlappingAllowed = True
+        Series8.SmartLabelStyle.MaxMovingDistance = 500.0R
+        Series8.SmartLabelStyle.MovingDirection = CType(((((((((System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Top Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Bottom) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Right) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Left) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.TopLeft) _
@@ -800,7 +800,7 @@ Partial Class Indicators
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.BottomLeft) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.BottomRight) _
             Or System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles.Center), System.Windows.Forms.DataVisualization.Charting.LabelAlignmentStyles)
-        Me.Chart8.Series.Add(Series20)
+        Me.Chart8.Series.Add(Series8)
         Me.Chart8.Size = New System.Drawing.Size(253, 235)
         Me.Chart8.TabIndex = 1
         Me.Chart8.Text = "Chart8"
@@ -824,21 +824,21 @@ Partial Class Indicators
         '
         'Chart9
         '
-        ChartArea21.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
-        ChartArea21.AxisX.IsLabelAutoFit = False
-        ChartArea21.AxisX.LabelAutoFitMaxFontSize = 7
-        ChartArea21.AxisX.LabelStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        ChartArea21.Name = "ChartArea1"
-        Me.Chart9.ChartAreas.Add(ChartArea21)
+        ChartArea9.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount
+        ChartArea9.AxisX.IsLabelAutoFit = False
+        ChartArea9.AxisX.LabelAutoFitMaxFontSize = 7
+        ChartArea9.AxisX.LabelStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        ChartArea9.Name = "ChartArea1"
+        Me.Chart9.ChartAreas.Add(ChartArea9)
         Me.Chart9.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Chart9.Location = New System.Drawing.Point(0, 45)
         Me.Chart9.Name = "Chart9"
         Me.Chart9.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
-        Series21.ChartArea = "ChartArea1"
-        Series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        Series21.Name = "Series1"
-        Me.Chart9.Series.Add(Series21)
+        Series9.ChartArea = "ChartArea1"
+        Series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        Series9.Name = "Series1"
+        Me.Chart9.Series.Add(Series9)
         Me.Chart9.Size = New System.Drawing.Size(261, 249)
         Me.Chart9.TabIndex = 1
         Me.Chart9.Text = "Chart9"
@@ -884,19 +884,19 @@ Partial Class Indicators
         '
         'Chart10
         '
-        ChartArea22.AxisX.IsLabelAutoFit = False
-        ChartArea22.AxisX.LabelAutoFitMaxFontSize = 7
-        ChartArea22.AxisX.LabelStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        ChartArea22.Name = "ChartArea1"
-        Me.Chart10.ChartAreas.Add(ChartArea22)
+        ChartArea10.AxisX.IsLabelAutoFit = False
+        ChartArea10.AxisX.LabelAutoFitMaxFontSize = 7
+        ChartArea10.AxisX.LabelStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        ChartArea10.Name = "ChartArea1"
+        Me.Chart10.ChartAreas.Add(ChartArea10)
         Me.Chart10.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Chart10.Location = New System.Drawing.Point(0, 45)
         Me.Chart10.Name = "Chart10"
         Me.Chart10.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel
-        Series22.ChartArea = "ChartArea1"
-        Series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series22.Name = "Series1"
-        Me.Chart10.Series.Add(Series22)
+        Series10.ChartArea = "ChartArea1"
+        Series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series10.Name = "Series1"
+        Me.Chart10.Series.Add(Series10)
         Me.Chart10.Size = New System.Drawing.Size(261, 250)
         Me.Chart10.TabIndex = 2
         Me.Chart10.Text = "Chart10"
@@ -931,19 +931,19 @@ Partial Class Indicators
         '
         'Chart11
         '
-        ChartArea23.AxisX.IsLabelAutoFit = False
-        ChartArea23.AxisX.LabelAutoFitMaxFontSize = 7
-        ChartArea23.AxisX.LabelStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
-        ChartArea23.Name = "ChartArea1"
-        Me.Chart11.ChartAreas.Add(ChartArea23)
+        ChartArea11.AxisX.IsLabelAutoFit = False
+        ChartArea11.AxisX.LabelAutoFitMaxFontSize = 7
+        ChartArea11.AxisX.LabelStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(238, Byte))
+        ChartArea11.Name = "ChartArea1"
+        Me.Chart11.ChartAreas.Add(ChartArea11)
         Me.Chart11.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Chart11.Location = New System.Drawing.Point(0, 45)
         Me.Chart11.Name = "Chart11"
         Me.Chart11.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel
-        Series23.ChartArea = "ChartArea1"
-        Series23.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
-        Series23.Name = "Series1"
-        Me.Chart11.Series.Add(Series23)
+        Series11.ChartArea = "ChartArea1"
+        Series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar
+        Series11.Name = "Series1"
+        Me.Chart11.Series.Add(Series11)
         Me.Chart11.Size = New System.Drawing.Size(261, 250)
         Me.Chart11.TabIndex = 2
         Me.Chart11.Text = "Chart11"
@@ -969,16 +969,16 @@ Partial Class Indicators
         '
         'Chart12
         '
-        ChartArea24.Name = "ChartArea1"
-        Me.Chart12.ChartAreas.Add(ChartArea24)
+        ChartArea12.Name = "ChartArea1"
+        Me.Chart12.ChartAreas.Add(ChartArea12)
         Me.Chart12.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Chart12.Location = New System.Drawing.Point(0, 22)
         Me.Chart12.Name = "Chart12"
         Me.Chart12.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire
-        Series24.ChartArea = "ChartArea1"
-        Series24.Name = "Series1"
-        Series24.YValuesPerPoint = 2
-        Me.Chart12.Series.Add(Series24)
+        Series12.ChartArea = "ChartArea1"
+        Series12.Name = "Series1"
+        Series12.YValuesPerPoint = 2
+        Me.Chart12.Series.Add(Series12)
         Me.Chart12.Size = New System.Drawing.Size(488, 272)
         Me.Chart12.TabIndex = 5
         Me.Chart12.Text = "Chart12"
@@ -1101,7 +1101,7 @@ Partial Class Indicators
         Me.ToolStripContainer1.TopToolStripPanel.Controls.Add(Me.ToolStrip1)
         Me.ToolStripContainer1.TopToolStripPanel.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
         '
-        'Form1
+        'Indicators
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -1109,7 +1109,7 @@ Partial Class Indicators
         Me.ClientSize = New System.Drawing.Size(1324, 957)
         Me.Controls.Add(Me.ToolStripContainer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Form1"
+        Me.Name = "Indicators"
         Me.Text = "Prognozy braków"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)

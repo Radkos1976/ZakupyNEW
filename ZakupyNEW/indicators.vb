@@ -31,7 +31,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select b.koor,sum(b.brak)/a.al as bilans from (select sum(brak) AL from (select part_no,min(bal_stock) brak from demands a where work_day<=current_date and koor!='*' And koor!='LUCPRZ' group by part_no) a where brak<0) a,(select part_no,min(bal_stock) brak,koor from demands a where work_day<=current_date group by part_no,koor) b where b.brak<0 and b.koor!='*' And b.koor!='LUCPRZ' group by b.koor,a.al", conB)
+                    Using con As New NpgsqlCommand("select b.koor,sum(b.brak)/a.al as bilans,'brak:'||round(sum(b.brak)::numeric,3)*-1||'/'||round(a.al::numeric,3)*-1 ds from (select sum(brak) AL from (select part_no,min(bal_stock) brak from demands a where work_day<=current_date and koor!='*' And koor!='LUCPRZ' group by part_no) a where brak<0) a,(select part_no,min(bal_stock) brak,koor from demands a where work_day<=current_date group by part_no,koor) b where b.brak<0 and b.koor!='*' And b.koor!='LUCPRZ' group by b.koor,a.al", conB)
                         Using rs As NpgsqlDataReader = con.ExecuteReader
                             kors.Load(rs)
                             For Each r In kors.Rows
@@ -86,7 +86,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select b.type rodzaj,1+sum(b.brak)/a.al as bilans,sum(b.brak)*-1  BRAK, a.al SUMALL from (select type,sum(qty_demand) AL from demands a where work_day<=current_date and koor!='*' And koor!='LUCPRZ' group by type) a,(select part_no,min(bal_stock) brak,koor,type from demands a where work_day<=current_date group by part_no,koor,type) b where a.type=b.type and b.brak<0 and b.koor!='*' And b.koor!='LUCPRZ' group by b.type,a.al order by b.type desc ", conB)
+                    Using con As New NpgsqlCommand("select b.type rodzaj,1+sum(b.brak)/a.al as bilans,sum(b.brak)*-1  BRAK, a.al SUMALL,'brak:'||round(sum(b.brak)::numeric,3)*-1||'/'||round(a.al::numeric,3) ds from (select type,sum(qty_demand) AL from demands a where work_day<=current_date and koor!='*' And koor!='LUCPRZ' group by type) a,(select part_no,min(bal_stock) brak,koor,type from demands a where work_day<=current_date group by part_no,koor,type) b where a.type=b.type and b.brak<0 and b.koor!='*' And b.koor!='LUCPRZ' group by b.type,a.al order by b.type desc ", conB)
                         Using rs As NpgsqlDataReader = con.ExecuteReader
                             kors.Load(rs)
                             Dim BR As Double
@@ -143,7 +143,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("Select work_day,1+(Sum(brak)/sum(sumal)) as bilans from aktual_hist where sumal>0 and work_day<=@work_day and case when @type!='Wszystkie' then type=@type else type is not null end and case when @koor!='WSZYSCY' then koor=@koor else koor is not null end group by work_day order by work_day", conB)
+                    Using con As New NpgsqlCommand("Select work_day,1+(Sum(brak)/sum(sumal)) as bilans,'brak:'||round(sum(brak)::numeric,3)*-1||'/'||round(sum(sumal)::numeric,3) ds from aktual_hist where sumal>0 and work_day<=@work_day and case when @type!='Wszystkie' then type=@type else type is not null end and case when @koor!='WSZYSCY' then koor=@koor else koor is not null end group by work_day order by work_day", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker1.Value.Date
                         con.Parameters.Add("type", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox1.SelectedItem.ToString
                         con.Parameters.Add("koor", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox2.SelectedItem.ToString
@@ -204,7 +204,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("Select work_day,1+(Sum(brak_mag)/sum(sumal)) as bilans from aktual_hist where sumal>0 and work_day<=@work_day and case when @type!='Wszystkie' then type=@type else type is not null end and case when @koor!='WSZYSCY' then koor=@koor else koor is not null end group by work_day order by work_day", conB)
+                    Using con As New NpgsqlCommand("Select work_day,1+(Sum(brak_mag)/sum(sumal)) as bilans,'Brak:'||round(Sum(brak_mag)::numeric,3)*-1||'/'||round(sum(sumal)::numeric,3) ds from aktual_hist where sumal>0 and work_day<=@work_day and case when @type!='Wszystkie' then type=@type else type is not null end and case when @koor!='WSZYSCY' then koor=@koor else koor is not null end group by work_day order by work_day", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker2.Value.Date
                         con.Parameters.Add("type", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox4.SelectedItem.ToString
                         con.Parameters.Add("koor", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox3.SelectedItem.ToString
@@ -265,7 +265,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select work_day,typ,sum(qty_all),sum(brak),1-(sum(brak)/sum(qty_all)) as Gotowość from day_qty where typ='MRP' group by work_day,typ order by work_day,typ", conB)
+                    Using con As New NpgsqlCommand("select work_day,typ,sum(qty_all),sum(brak),1-(sum(brak)/sum(qty_all)) as Gotowość,'brak:'||sum(brak)||'/'||sum(qty_all) des from day_qty where typ='MRP' group by work_day,typ order by work_day,typ", conB)
                         Using rs As NpgsqlDataReader = con.ExecuteReader
                             kors.Load(rs)
                             If kors.Rows.Count > 0 Then
@@ -321,7 +321,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select work_day,typ,sum(qty_all),sum(brak),1-(sum(brak)/sum(qty_all)) as Gotowość from day_qty where typ='DOP' group by work_day,typ order by work_day,typ", conB)
+                    Using con As New NpgsqlCommand("select work_day,typ,sum(qty_all),sum(brak),1-(sum(brak)/sum(qty_all)) as Gotowość,'brak:'||sum(brak)||'/'||sum(qty_all) des from day_qty where typ='DOP' group by work_day,typ order by work_day,typ", conB)
                         Using rs As NpgsqlDataReader = con.ExecuteReader
                             kors.Load(rs)
                             If kors.Rows.Count > 0 Then
@@ -494,7 +494,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1)='5' group by wrkc having sum(qty_all)>0", conB)
+                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans,'brak:'||sum(brak)||'/'||sum(qty_all) des from braki_gniazd where work_day=@work_day and substring(wrkc,1,1)='5' group by wrkc having sum(qty_all)>0", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker3.Value
                         con.Prepare()
                         Using rs As NpgsqlDataReader = con.ExecuteReader
@@ -550,7 +550,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) in ('4','1','2') group by wrkc having sum(qty_all)>0", conB)
+                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans,'brak:'||sum(brak)||'/'||sum(qty_all) des from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) in ('4','1','2') group by wrkc having sum(qty_all)>0", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker5.Value
                         con.Prepare()
                         Using rs As NpgsqlDataReader = con.ExecuteReader
@@ -607,7 +607,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) not in ('5','4','1','2') group by wrkc having sum(qty_all)>0", conB)
+                    Using con As New NpgsqlCommand("select wrkc,1-(sum(brak)/sum(qty_all)) bilans,'brak:'||sum(brak)||'/'||sum(qty_all) des from braki_gniazd where work_day=@work_day and substring(wrkc,1,1) not in ('5','4','1','2') group by wrkc having sum(qty_all)>0", conB)
                         con.Parameters.Add("work_day", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTimePicker7.Value
                         con.Prepare()
                         Using rs As NpgsqlDataReader = con.ExecuteReader
@@ -618,6 +618,7 @@ Public Class Indicators
                                 CArea.BackColor = Color.FromArgb(180, Color.Azure)           '~~> Changing the Back Color of the Chart Area 
                                 CArea.ShadowColor = Color.FromArgb(180, Color.Red)          '~~> Changing the Shadow Color of the Chart Area 
                                 CArea.Area3DStyle.Enable3D = True
+
                                 CArea.AxisX.MajorGrid.Enabled = False   '~~> Removed the X axis major grids
                                 CArea.AxisY.MajorGrid.Enabled = False   '~~> Removed the Y axis major grids
                                 CArea.AxisY.LabelStyle.Format = "0.0%" '~~> Formatting Y axis to display values in %age
@@ -626,10 +627,10 @@ Public Class Indicators
                                 Dim Series1 As Series = Chart11.Series(0)
                                 '~~> Setting the series Name
                                 Series1.Name = "BRAKI"
+
                                 '~~> Assigning values to X and Y Axis
                                 Chart11.Series(Series1.Name).XValueMember = "wrkc"
                                 Chart11.Series(Series1.Name).YValueMembers = "bilans"
-
                                 'Chart2.Annotations(ann.Name).
                                 '~~> Setting Font, Font Size and Bold
                                 '~~> Setting Value Type
@@ -642,6 +643,7 @@ Public Class Indicators
                                 'Chart6.Series(Series1.Name).LabelAngle = 90
                                 'Chart2.Series(Series1.Name).Color = Color.FromArgb(180, Color.Blue)
                                 '~~> Setting label's Fore Color
+
                                 Chart11.Series(Series1.Name).LabelForeColor = Color.DarkRed
                                 '~~> Setting label's Format to %age
                                 Chart11.Series(Series1.Name).LabelFormat = "0.0%"
@@ -664,7 +666,7 @@ Public Class Indicators
             Using kors As New DataTable()
                 Using conB As New NpgsqlConnection(NpA)
                     conB.Open()
-                    Using con As New NpgsqlCommand("select planner_buyer,a.in_plus/b.in_plus in_plus,a.in_minus/b.in_minus*-1 in_minus from (select planner_buyer,coalesce(sum(case when wartość>0 then wartość end ),0) in_plus,coalesce(sum(case when wartość<0 then wartość end ),0) in_minus from bilans_val group by planner_buyer) a,(select coalesce(sum(case when wartość>0 then wartość end ),0) in_plus,coalesce(sum(case when wartość<0 then wartość end ),0) in_minus from bilans_val ) b where a.in_plus/b.in_plus>0.0001 and a.in_minus/b.in_minus>0.0001", conB)
+                    Using con As New NpgsqlCommand("Select planner_buyer,a.in_plus/b.in_plus in_plus,a.in_minus/b.in_minus*-1 in_minus from (Select planner_buyer,coalesce(sum(Case When wartość>0 Then wartość End ),0) in_plus,coalesce(sum(Case When wartość<0 Then wartość End ),0) in_minus from bilans_val group by planner_buyer) a,(Select coalesce(sum(Case When wartość>0 Then wartość End ),0) in_plus,coalesce(sum(Case When wartość<0 Then wartość End ),0) in_minus from bilans_val ) b where a.in_plus/b.in_plus>0.0001 And a.in_minus/b.in_minus>0.0001", conB)
                         Using rs As NpgsqlDataReader = con.ExecuteReader
                             kors.Load(rs)
                             Dim seria As String
@@ -689,6 +691,7 @@ Public Class Indicators
                                 '~~> Assigning values to X and Y Axis
                                 Chart12.Series(Series1.Name).XValueMember = "planner_buyer"
                                 Chart12.Series(Series1.Name).YValueMembers = seria
+
 
                                 'Chart2.Annotations(ann.Name).
                                 '~~> Setting Font, Font Size and Bold
@@ -728,7 +731,7 @@ Public Class Indicators
         Dim day As Date
         Using conB As New NpgsqlConnection(NpA)
             conB.Open()
-            Using con As New NpgsqlCommand("select date_fromnow(9)", conB)
+            Using con As New NpgsqlCommand("Select date_fromnow(9)", conB)
                 day = con.ExecuteScalar()
             End Using
         End Using
@@ -827,7 +830,7 @@ Public Class Indicators
         Dim f As String
 
         If col = "AKT" Then
-            tblFields = "Select * from Formatka a where a.work_day=@dat and case when @rodzaj4!='Wszystkie' then a.rodzaj=@rodzaj4 else a.rodzaj is not null end and case when @koor3!='WSZYSCY' then a.koor=@koor3 else a.koor is not null end"
+            tblFields = "Select * from Formatka a where a.work_day=@dat And Case When @rodzaj4!='Wszystkie' then a.rodzaj=@rodzaj4 else a.rodzaj is not null end and case when @koor3!='WSZYSCY' then a.koor=@koor3 else a.koor is not null end"
         ElseIf col = "PROG" Then
             tblFields = "Select * from Formatka_bil a where a.work_day=@dat and case when @rodzaj1!='Wszystkie' then a.rodzaj=@rodzaj1 else a.rodzaj is not null end and case when @koor2!='WSZYSCY' then a.koor=@koor2 else a.koor is not null end "
         ElseIf col = "VAL" Then
@@ -837,15 +840,15 @@ Public Class Indicators
         ElseIf col = "brak_m" Then
             tblFields = "select * from braki_poreal where date_required=@dat and typ='MRP'"
         ElseIf col = "AKT_d" Then
-            tblFields = "Select get_koor(part_no) koor,Case When dop=0 Then 'MRP' else 'DOP' end typ,part_no,descr,sum(prod_qty) zagrożenie_prod,sum(qty_demand) Potrzeba,wrkc,next_wrkc from ord_lack where case when @dat=current_date then date_required<=current_date else date_required=@dat end and get_koor(part_no)=@strg and  dop!=0 and order_supp_dmd!='Zam. zakupu' group by get_koor(part_no),Case When dop=0 Then 'MRP' else 'DOP' end ,part_no,descr,wrkc,next_wrkc"
+            tblFields = "Select get_koor(part_no) koor,Case When dop=0 Then 'MRP' else 'DOP' end typ,part_no,descr,sum(prod_qty) zagrożenie_prod,sum(qty_demand) Potrzeba,get_inventory(part_no) Stan_mag,wrkc,next_wrkc from ord_lack where case when @dat=current_date then date_required<=current_date else date_required=@dat end and get_koor(part_no)=@strg and  dop!=0 and order_supp_dmd!='Zam. zakupu' group by get_koor(part_no),Case When dop=0 Then 'MRP' else 'DOP' end ,part_no,descr,wrkc,next_wrkc"
         ElseIf col = "AKT_m" Then
-            tblFields = "Select get_koor(part_no) koor,Case When dop=0 Then 'MRP' else 'DOP' end typ,part_no,descr,sum(prod_qty) zagrożenie_prod,sum(qty_demand) Potrzeba,wrkc,next_wrkc from ord_lack where case when @dat=current_date then date_required<=current_date else date_required=@dat end and get_koor(part_no)=@strg and  dop=0 and order_supp_dmd!='Zam. zakupu' group by get_koor(part_no),Case When dop=0 Then 'MRP' else 'DOP' end ,part_no,descr,wrkc,next_wrkc"
+            tblFields = "Select get_koor(part_no) koor,Case When dop=0 Then 'MRP' else 'DOP' end typ,part_no,descr,sum(prod_qty) zagrożenie_prod,sum(qty_demand) Potrzeba,get_inventory(part_no) Stan_mag,wrkc,next_wrkc from ord_lack where case when @dat=current_date then date_required<=current_date else date_required=@dat end and get_koor(part_no)=@strg and  dop=0 and order_supp_dmd!='Zam. zakupu' group by get_koor(part_no),Case When dop=0 Then 'MRP' else 'DOP' end ,part_no,descr,wrkc,next_wrkc"
         ElseIf col = "AKT_a" Then
             tblFields = "Select * from Formatka a where a.work_day=@dat and a.koor=@strg"
         ElseIf col = "AKT_p" Then
             tblFields = "Select * from Formatka a where a.work_day=@dat and  a.rodzaj=@strg"
         ElseIf col = "AKT_g" Then
-            tblFields = "Select get_koor(part_no) koor,Case When dop=0 Then 'MRP' else 'DOP' end typ,part_no,descr,sum(prod_qty) zagrożenie_prod,sum(qty_demand) Potrzeba,CASE WHEN substring(wrkc, 1, 1) = '4' THEN CASE WHEN substring(wrkc, 1, 2) = '40' THEN wrkc ELSE '400TAP' END ELSE wrkc END AS wrkc,CASE WHEN substring(next_wrkc, 1, 1) = '4' THEN CASE WHEN substring(next_wrkc, 1, 2) = '40' THEN next_wrkc ELSE '400TAP' END ELSE next_wrkc END AS next_wrkc from ord_lack where case when @dat=current_date then date_required<=current_date else date_required=@dat end and (CASE WHEN substring(wrkc, 1, 1) = '4' THEN CASE WHEN substring(wrkc, 1, 2) = '40' THEN wrkc ELSE '400TAP' END ELSE wrkc END =@strg or CASE WHEN substring(next_wrkc, 1, 1) = '4' THEN CASE WHEN substring(next_wrkc, 1, 2) = '40' THEN next_wrkc ELSE '400TAP' END ELSE next_wrkc END=@strg) and order_supp_dmd!='Zam. zakupu' group by get_koor(part_no),Case When dop=0 Then 'MRP' else 'DOP' end ,part_no,descr,CASE WHEN substring(wrkc, 1, 1) = '4' THEN CASE WHEN substring(wrkc, 1, 2) = '40' THEN wrkc ELSE '400TAP' END ELSE wrkc END,CASE WHEN substring(next_wrkc, 1, 1) = '4' THEN CASE WHEN substring(next_wrkc, 1, 2) = '40' THEN next_wrkc ELSE '400TAP' END ELSE next_wrkc END"
+            tblFields = "Select get_koor(a.part_no) koor,Case When a.dop=0 Then 'MRP' else 'DOP' end typ,a.part_no,a.descr,sum(a.prod_qty) zagrożenie_prod,sum(a.qty_demand) Potrzeba_gniazdo,b.bal_stock Bilans_all,get_inventory(a.part_no) Stan_mag,CASE WHEN substring(a.wrkc, 1, 1) = '4' THEN CASE WHEN substring(a.wrkc, 1, 2) in ('40','46') THEN a.wrkc ELSE '400TAP' END ELSE a.wrkc END AS wrkc,CASE WHEN substring(a.next_wrkc, 1, 1) = '4' THEN CASE WHEN substring(a.next_wrkc, 1, 2) in ('40','46') THEN a.next_wrkc ELSE '400TAP' END ELSE a.next_wrkc END AS next_wrkc from ord_lack a , demands b where case when @dat=current_date then a.date_required<=current_date else a.date_required=@dat end  and (CASE WHEN substring(a.wrkc, 1, 1) = '4' THEN CASE WHEN substring(a.wrkc, 1, 2) in ('40','46') THEN a.wrkc ELSE '400TAP' END ELSE a.wrkc END =@strg 	 or CASE WHEN substring(a.next_wrkc, 1, 1) = '4' THEN CASE WHEN substring(a.next_wrkc, 1, 2) in ('40','46') THEN a.next_wrkc ELSE '400TAP' END 	 ELSE a.next_wrkc END=@strg) and a.order_supp_dmd!='Zam. zakupu' and b.part_no=a.part_no and b.work_day=a.date_required group by get_koor(a.part_no),Case When a.dop=0 Then 'MRP' else 'DOP' end,b.bal_stock ,a.part_no,a.descr,	 CASE WHEN substring(a.wrkc, 1, 1) = '4' THEN CASE WHEN substring(a.wrkc, 1, 2) in ('40','46') THEN a.wrkc ELSE '400TAP' END ELSE a.wrkc END,	 CASE WHEN substring(a.next_wrkc, 1, 1) = '4' THEN CASE WHEN substring(a.next_wrkc, 1, 2) in ('40','46') THEN a.next_wrkc ELSE '400TAP' END ELSE a.next_wrkc END "
         Else
             tblFields = ""
         End If
@@ -853,18 +856,20 @@ Public Class Indicators
             Using conB As New NpgsqlConnection(NpA)
                 conB.Open()
                 Using con As New NpgsqlCommand(tblFields, conB)
-                    con.Parameters.Add("dat", NpgsqlTypes.NpgsqlDbType.Date).Value = dat.Date
-                    con.Parameters.Add("rodzaj4", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox4.SelectedItem.ToString
-                    con.Parameters.Add("rodzaj1", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox1.SelectedItem.ToString
-                    con.Parameters.Add("koor3", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox3.SelectedItem.ToString
-                    con.Parameters.Add("koor2", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox2.SelectedItem.ToString
-                    con.Parameters.Add("strg", NpgsqlTypes.NpgsqlDbType.Varchar).Value = strg
-                    con.Parameters.Add("wart", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox5.SelectedItem
+                    With con.Parameters
+                        .Add("dat", NpgsqlTypes.NpgsqlDbType.Date).Value = dat.Date
+                        .Add("rodzaj4", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox4.SelectedItem.ToString
+                        .Add("rodzaj1", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox1.SelectedItem.ToString
+                        .Add("koor3", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox3.SelectedItem.ToString
+                        .Add("koor2", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox2.SelectedItem.ToString
+                        .Add("strg", NpgsqlTypes.NpgsqlDbType.Varchar).Value = strg
+                        .Add("wart", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ComboBox5.SelectedItem
+                    End With
                     con.Prepare()
                     Using rs As NpgsqlDataReader = con.ExecuteReader
                         kors.Load(rs)
                         f = V.BaseFilter
-                        V.ActivateAllFilters(False)
+                        'V.ActivateAllFilters(False)
                         DataGridView1.DataSource = kors
                         V.BaseFilter = f
                         V.RebuildFilter()
@@ -875,7 +880,7 @@ Public Class Indicators
         Reorg()
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
-        Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " & "http://ifsvapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Part_no").Value.ToString & "%255E*%26COMPANY%3DSITS")
+        Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " & "http://sitsifsapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Part_no").Value.ToString & "%255E*%26COMPANY%3DSITS")
     End Sub
     Private Sub ToolStripButton1_Click(sender As Object, e As EventArgs) Handles ToolStripButton1.Click
         If ToolStripButton1.Checked = True Then
@@ -1116,5 +1121,94 @@ Public Class Indicators
         For Each path In files
             MsgBox(path)
         Next
+    End Sub
+
+    Private Sub Chart11_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart11.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart11.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart11.DataSource
+                Chart11.Series(0).ToolTip = kors(HTR.PointIndex)(2).ToString
+            End Using
+        End If
+    End Sub
+
+    Private Sub Chart4_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart4.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart4.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart4.DataSource
+                Chart4.Series(0).ToolTip = kors(HTR.PointIndex)(2).ToString
+            End Using
+        End If
+    End Sub
+    Private Sub Chart1_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart1.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart1.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart1.DataSource
+                Chart1.Series(0).ToolTip = kors(HTR.PointIndex)(2).ToString
+            End Using
+        End If
+    End Sub
+
+    Private Sub Chart3_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart3.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart3.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart3.DataSource
+                Chart3.Series(0).ToolTip = kors(HTR.PointIndex)(4).ToString
+            End Using
+        End If
+    End Sub
+
+    Private Sub Chart2_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart2.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart2.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart2.DataSource
+                Chart2.Series(0).ToolTip = kors(HTR.PointIndex)(2).ToString
+            End Using
+        End If
+    End Sub
+
+    Private Sub Chart5_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart5.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart5.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart5.DataSource
+                Chart5.Series(0).ToolTip = kors(HTR.PointIndex)(5).ToString
+            End Using
+        End If
+    End Sub
+
+    Private Sub Chart6_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart6.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart6.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart6.DataSource
+                Chart6.Series(0).ToolTip = kors(HTR.PointIndex)(5).ToString
+            End Using
+        End If
+    End Sub
+
+    Private Sub Chart9_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart9.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart9.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart9.DataSource
+                Chart9.Series(0).ToolTip = kors(HTR.PointIndex)(2).ToString
+            End Using
+        End If
+    End Sub
+
+    Private Sub Chart10_MouseMove(sender As Object, e As MouseEventArgs) Handles Chart10.MouseMove
+        Dim HTR As HitTestResult
+        HTR = Chart10.HitTest(e.X, e.Y)
+        If HTR.ChartElementType.ToString = "DataPoint" Or HTR.ChartElementType.ToString = "ChartArea" Or HTR.ChartElementType.ToString = "DataPointLabel" Then
+            Using kors As DataTable = Chart10.DataSource
+                Chart10.Series(0).ToolTip = kors(HTR.PointIndex)(2).ToString
+            End Using
+        End If
     End Sub
 End Class

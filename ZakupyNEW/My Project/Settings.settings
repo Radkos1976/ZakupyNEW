@@ -30,7 +30,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Wyniki" Type="System.Uri" Scope="Application">
-      <Value Profile="(Default)">http://10.0.1.29:3000</Value>
+      <Value Profile="(Default)">http://10.1.1.29:3000</Value>
     </Setting>
   </Settings>
 </SettingsFile>

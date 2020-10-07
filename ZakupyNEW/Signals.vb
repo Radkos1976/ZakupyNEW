@@ -540,7 +540,7 @@ Public Class Signals
         End Try
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
-        Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " & "http://ifsvapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Indeks").Value.ToString & "%255E*%26COMPANY%3DSITS")
+        Process.Start("rundll32.exe", "dfshim.dll,ShOpenVerbApplication " & "http://sitsifsapp1.sits.local:59080/client/runtime/Ifs.Fnd.Explorer.application?url=ifsapf%3AfrmAvailabilityPlanning%3Faction%3Dget%26key1%3D*%255EST%255E" & DataGridView1.Rows(e.RowIndex).Cells("Indeks").Value.ToString & "%255E*%26COMPANY%3DSITS")
     End Sub
     Private Sub DataGridView1_CellPainting(ByVal sender As Object, ByVal e As DataGridViewCellPaintingEventArgs) Handles DataGridView1.CellPainting
         If e.ColumnIndex = -1 AndAlso e.RowIndex >= 0 Then
@@ -909,14 +909,13 @@ Public Class Signals
                 no_sor = True
             End If
             If selectedRowCount > 0 Then
-
                 For i = 0 To selectedRowCount - 1
                     a(i) = DataGridView1.SelectedRows(i).Index.ToString
                 Next i
             End If
             SuspendDrawing(DataGridView1)
             Save_fil()
-            V.ActivateAllFilters(False)
+            'V.ActivateAllFilters(False)
             With DataGridView1
                 .DataSource = src
                 Load_fil(tmp_fil)
@@ -1478,7 +1477,7 @@ Public Class Signals
     End Sub
 
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
-        Process.Start("microsoft-edge:http://10.0.1.29:3000")
+        Process.Start("microsoft-edge:http://10.1.1.29:3000")
     End Sub
 
     Private Sub TreeView1_NodeMouseClick(sender As Object, e As TreeNodeMouseClickEventArgs) Handles TreeView1.NodeMouseClick

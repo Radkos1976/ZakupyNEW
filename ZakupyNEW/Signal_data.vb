@@ -6,7 +6,7 @@ Module Signal_data
     Public start_cal As Date = Now
     Public driveD As Boolean
     Public Const SHOW_err As Boolean = False
-    Dim qw As New NpgsqlConnectionStringBuilder("Host = 10.0.1.29; Port = 5432; ApplicationName = CLIENT; Username = " & GetSetting("ZakupyNEW", "Main", "UID", "NoPostgresql") & "; Password = " & GetSetting("ZakupyNEW", "Main", "PSW") & "; Database = zakupy")
+    Dim qw As New NpgsqlConnectionStringBuilder("Host = 10.1.1.29; Port = 5432; ApplicationName = CLIENT; Username = " & GetSetting("ZakupyNEW", "Main", "UID", "NoPostgresql") & "; Password = " & GetSetting("ZakupyNEW", "Main", "PSW") & "; Database = zakupy")
     Public NpA As String = qw.ToString
     Public Refr_date As Date
     Public Function CRE_Soures(Optional ByVal run_now As Boolean = False) As String
